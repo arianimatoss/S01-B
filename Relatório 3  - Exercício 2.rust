@@ -1,0 +1,33 @@
+use std::io;
+
+fn eh_impar(numero: i32) -> bool {
+    numero % 2 != 0
+}
+
+fn main() {
+    println!("Jogador 1, escolha par ou impar:");
+    let mut escolha = String::new();
+    io::stdin().read_line(&mut escolha).unwrap();
+    let escolha = escolha.trim();
+
+    println!("Jogador 1, digite seu numero:");
+    let mut n1 = String::new();
+    io::stdin().read_line(&mut n1).unwrap();
+    let n1: i32 = n1.trim().parse().unwrap();
+
+    println!("Jogador 2, digite seu numero:");
+    let mut n2 = String::new();
+    io::stdin().read_line(&mut n2).unwrap();
+    let n2: i32 = n2.trim().parse().unwrap();
+
+    let soma = n1 + n2;
+    let resultado_impar = eh_impar(soma);
+
+    println!("Soma: {}", soma);
+
+    if (resultado_impar && escolha == "impar") || (!resultado_impar && escolha == "par") {
+        println!("Jogador 1 venceu!");
+    } else {
+        println!("Jogador 2 venceu!");
+    }
+}
