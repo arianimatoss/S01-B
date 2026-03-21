@@ -1,0 +1,29 @@
+use std::io;
+
+fn imprimir_multiplos(numero: i32, limite_inferior: i32, limite_superior: i32) {
+    for i in limite_inferior..=limite_superior {
+        if i % numero == 0 {
+            println!("{}", i);
+        }
+    }
+}
+
+fn main() {
+    println!("Digite o numero da tabuada:");
+    let mut num = String::new();
+    io::stdin().read_line(&mut num).unwrap();
+    let num: i32 = num.trim().parse().unwrap();
+
+    println!("Digite o limite inferior:");
+    let mut inferior = String::new();
+    io::stdin().read_line(&mut inferior).unwrap();
+    let inferior: i32 = inferior.trim().parse().unwrap();
+
+    println!("Digite o limite superior:");
+    let mut superior = String::new();
+    io::stdin().read_line(&mut superior).unwrap();
+    let superior: i32 = superior.trim().parse().unwrap();
+
+    println!("Multiplos de {} entre {} e {}:", num, inferior, superior);
+    imprimir_multiplos(num, inferior, superior);
+}
