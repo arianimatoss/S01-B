@@ -1,0 +1,53 @@
+using System;
+using System.Collections.Generic;
+
+namespace Exercicio2
+{
+    class Pokemon
+    {
+        public string Especie { get; set; }
+    }
+    
+    class CriaturaPokemon : Pokemon
+    {
+        public virtual void ExecutarMovimento()
+        {
+            Console.WriteLine($"{Especie} executa um movimento genérico.");
+        }
+    }
+
+    class TipoFogo : CriaturaPokemon
+    {
+        public override void ExecutarMovimento()
+        {
+            Console.WriteLine($"{Especie} lança uma rajada de chamas!");
+        }
+    }
+    class TipoAgua : CriaturaPokemon
+    {
+        public override void ExecutarMovimento()
+        {
+            Console.WriteLine($"{Especie} dispara uma bolha de água!");
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            CriaturaPokemon scorBunny = new TipoFogo { Especie = "Scorbunny" };
+            CriaturaPokemon greninja = new TipoAgua { Especie = "Greninja" };
+
+            List<CriaturaPokemon> lista = new List<CriaturaPokemon>();
+            lista.Add(scorBunny);
+            lista.Add(greninja);
+
+            foreach (var pokemon in lista)
+            {
+                pokemon.ExecutarMovimento();
+            }
+
+            Console.ReadLine();
+        }
+    }
+}
