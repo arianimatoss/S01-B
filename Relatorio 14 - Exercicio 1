@@ -1,0 +1,13 @@
+% Inclusão dos fatos solicitados
+alimenta(sucuri, agua).
+alimenta(sucuri, terra).
+
+especie_chave(Animal) :-
+    (alimenta(Animal, agua) ; alimenta(Animal, terra)),
+    (nicho(Animal, rios) ;
+     nicho(Animal, pantano) ;
+     nicho(Animal, pântano) ;
+     nicho(Animal, profundezas)).
+
+% Query:
+% ?- especie_chave(X).
