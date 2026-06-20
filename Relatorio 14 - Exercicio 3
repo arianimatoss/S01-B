@@ -1,0 +1,9 @@
+competidores_diretos(A, B) :-
+    alimenta(sol, A),
+    alimenta(sol, B),
+    alimenta(terra, A),
+    alimenta(terra, B),
+    A \= B.
+
+% Query:
+% ?- competidores_diretos(X, Y).
